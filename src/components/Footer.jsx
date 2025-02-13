@@ -9,7 +9,7 @@ function Footer() {
     const currentYear = new Date().getFullYear();
 
   return (
-    <div className="w-full pt-20 flex px-[23%] py-5 bg-[#141414] text-white">
+    <div className="w-full pt-20 flex px-5 sm:px-[23%] py-5 bg-[#141414] text-white">
       <div className="flex flex-col w-full gap-4">
         <div className="flex gap-7">
           <img src={facebook} alt="" className="w-6" />
