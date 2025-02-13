@@ -1,0 +1,8 @@
+.custom-scrollbar {
+  overflow-x: auto;
+  white-space: nowrap; /* Prevent wrapping of items */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for a cleaner look */
+}
