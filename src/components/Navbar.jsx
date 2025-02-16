@@ -43,7 +43,7 @@ const Navbar = () => {
 
           {/* Dropdown Menu */}
           {isOpen && (
-            <ul className="border text-xs border-white flex flex-col items-center p-2 absolute gap-3 w-[60%] min-w-[200px] left-0 bg-black/80 top-[120%] rounded-lg shadow-lg">
+            <ul className="border z-100 text-xs border-white flex flex-col items-center p-2 absolute gap-3 w-[60%] min-w-[200px] left-0 bg-black/80 top-[120%] rounded-lg shadow-lg">
               <NavBarMenuSm title="Home" link="home" />
               <NavBarMenuSm title="TV Shows" link="tvshows" />
               <NavBarMenuSm title="Movies" link="movies" />

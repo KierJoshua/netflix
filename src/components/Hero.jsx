@@ -10,8 +10,8 @@ function Hero() {
     <div className="ps-[6%] w-full relative">
     <img src={hero} alt="" className="w-full mask-gradient" />
     <div className="absolute bottom-0 w-full">
-      <img src={title} alt="" className="w-36 sm:w-56 md:w-[90%] max-w-[420px] mb-7" />
-      <p className=" sm:max-w-[500px] md:max-w-[700px] text-xs sm:text-sm md:text-md">
+      <img src={title} alt="" className="w-32 sm:w-56 md:w-[90%] max-w-[420px] mb-7" />
+      <p className="max-w-[300px] sm:max-w-[500px] md:max-w-[700px] text-xs sm:text-sm md:text-md">
         Discovering his ties to a secret ancient order, a young man living in
         modern Istanbul embarks on a quest to save the city from an immortal
         enemy

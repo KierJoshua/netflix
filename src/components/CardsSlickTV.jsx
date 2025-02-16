@@ -69,25 +69,27 @@ function CardsSlickTV({title, category}) {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2
+          initialSlide: 0, // Ensure it starts from the first slide
+          infinite: true // Enable infinite scrolling on mobile
         }
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToScroll: 1,
+          infinite: true // Enable infinite scrolling
         }
       }
     ]
   };
 
   return (
-    <div className="slider-container w-full relative">
+    <div className="slider-container w-full relative overflow-hidden">
       <h1 className="text-2xl font-bold">{title}</h1>
       <Slider {...settings}>
         {api.map((card, index) => (  
-          <Link to={`/tv-player/${card.id}`}> 
+          <Link to={`/tv-player/${card.id}`} key={index}> 
           <div
             className="my-5 relative cursor-pointer hover:scale-110 transition-transform duration-300"
             key={index}

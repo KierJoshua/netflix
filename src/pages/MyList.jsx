@@ -58,7 +58,7 @@ function MyList() {
               <Link
                 to={`/player/${movie.id}`}
                 key={index}
-                className="col-span-2 my-5 mx-1 relative cursor-pointer hover:scale-110 transition-transform duration-300"
+                className="col-span-4 sm:col-span-3 md:col-span-2 my-5 mx-1 relative cursor-pointer hover:scale-110 transition-transform duration-300"
               >
                 <img
                   src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
