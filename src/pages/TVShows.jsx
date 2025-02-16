@@ -17,8 +17,8 @@ function TVShows() {
 
   return (
     <div>
-      <div className='ps-[6%] fixed top-16 z-10 w-full py-4' ref={ref}>
-        <h1 className='text-md sm:text-xl md:text-3xl font-semibold '>TV SHOWS</h1>
+      <div className='ps-[6%] fixed top-10 sm:top-16 z-10 w-full py-4' ref={ref}>
+        <h1 className='text-sm sm:text-xl md:text-3xl font-semibold '>TV SHOWS</h1>
         </div>
         <div  className='ps-[6%]'>
         <CardsSlickTV title={"Airing Today"} category={"airing_today"} />

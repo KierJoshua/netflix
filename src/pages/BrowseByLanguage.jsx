@@ -59,9 +59,9 @@ function BrowseByLanguage() {
         <Navbar />
 
         {/* Fixed Top Header with Proper Padding */}
-        <div className="fixed top-16 z-10 w-full bg-transparent">
+        <div className="fixed top-10 sm:top-16 z-10 w-full bg-transparent">
           <div className="flex-col md:flex md:flex-row justify-between px-[6%] w-full items-center py-4" ref={ref}>
-            <h1 className="text-md sm:text-xl md:text-3xl font-semibold text-white">Browse By Language</h1>
+            <h1 className="text-sm sm:text-xl md:text-3xl font-semibold text-white">Browse By Language</h1>
 
             <div className="flex items-center gap-4">
               <p>Select your preferences</p>
@@ -121,14 +121,14 @@ function BrowseByLanguage() {
               <Link
                 to={`/player/movie/${movie.id}`}
                 key={index}
-                className="col-span-2 my-5 mx-1 relative cursor-pointer hover:scale-110 transition-transform duration-300"
+                className="col-span-4 sm:col-span-3 md:col-span-2 my-5 mx-1 relative cursor-pointer hover:scale-110 transition-transform duration-300"
               >
                 <img
                   src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
                   alt=""
                   className="rounded"
                 />
-                <p className="absolute bottom-2 left-2 text-transparent hover:text-white">
+                <p className="absolute bottom-2 left-2 text-xs sm:text-base text-white sm:text-transparent hover:text-white">
                   {movie.original_title}
                 </p>
               </Link>

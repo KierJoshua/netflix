@@ -18,8 +18,8 @@ function Movies() {
 
   return (
     <div className="">
-      <div className='fixed top-16 w-full py-4 z-10 ps-[6%]' ref={ref}>
-      <h1 className='text-md sm:text-xl md:text-3xl  font-semibold'>MOVIES</h1>
+      <div className='fixed top-10 sm:top-16 w-full py-4 z-10 ps-[6%]' ref={ref}>
+      <h1 className='text-sm sm:text-xl md:text-3xl  font-semibold'>MOVIES</h1>
       </div>
       <div className='ps-[6%]'>
     <CardsSlick title="Popular" category={"popular"}/>

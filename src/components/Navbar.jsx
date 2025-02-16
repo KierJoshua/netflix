@@ -9,28 +9,35 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import NavBarMenuSm from "./NavBarMenuSm";
 
 const Navbar = () => {
-  const navRef = useRef();
+  const navRef = useRef(null); // Initialize navRef
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY >= 80) {
-        navRef.current.classList.add("bg-black");
-      } else {
-        navRef.current.classList.remove("bg-black");
+    const handleScroll = () => {
+      if (navRef.current) {
+        if (window.scrollY >= 80) {
+          navRef.current.classList.add("bg-black");
+        } else {
+          navRef.current.classList.remove("bg-black");
+        }
       }
-    });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
     <div
-      className="flex justify-between items-center px-[6%] py-5 fixed w-full z-10"
+      className="flex justify-between items-center px-[6%] py-2 sm:py-5 fixed w-full z-10"
       ref={navRef}
     >
       {/* Left Side - Logo & Menu */}
       <div className="flex gap-8 items-center">
-        {/* Logo */}
-        <img src={logo} alt="Logo" className="w-24" />
+        <img src={logo} alt="Logo" className="w-12 sm:w-24" />
 
         {/* Mobile Dropdown Menu */}
         <div className="relative flex items-center md:hidden">
@@ -43,7 +50,7 @@ const Navbar = () => {
 
           {/* Dropdown Menu */}
           {isOpen && (
-            <ul className="border z-100 text-xs border-white flex flex-col items-center p-2 absolute gap-3 w-[60%] min-w-[200px] left-0 bg-black/80 top-[120%] rounded-lg shadow-lg">
+            <ul className="border z-100 text-xs border-white flex flex-col items-center p-2 absolute gap-3 w-[60%] min-w-[200px] left-0 bg-black/80 top-[500%] rounded-lg shadow-lg">
               <NavBarMenuSm title="Home" link="home" />
               <NavBarMenuSm title="TV Shows" link="tvshows" />
               <NavBarMenuSm title="Movies" link="movies" />

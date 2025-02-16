@@ -50,8 +50,8 @@ function MyList() {
       <div className="bg-[#141414] text-white font-[Poppins] overflow-hidden min-h-screen">
         <Navbar />
         <div className=" my-32">
-          <div className="w-full fixed top-16 z-10 py-4 px-[6%]" ref={ref}>
-            <h1 className="text-md sm:text-xl md:text-3xl  font-semibold text-white ">MY LIST</h1>
+          <div className="w-full fixed top-10 sm:top-16 z-10 py-4 px-[6%]" ref={ref}>
+            <h1 className="text-sm sm:text-xl md:text-3xl  font-semibold text-white ">MY LIST</h1>
           </div>
           <div className="mt-10 grid grid-cols-12 gap-2 px-[6%]">
             {movies.map((movie, index) => (
@@ -65,7 +65,7 @@ function MyList() {
                   alt=""
                   className="rounded"
                 />
-                <p className="absolute bottom-2 left-2 text-transparent hover:text-white">
+                <p className="absolute bottom-2 left-2 text-xs sm:text-base text-white sm:text-transparent hover:text-white">
                   {movie.original_title}
                 </p>
               </Link>
