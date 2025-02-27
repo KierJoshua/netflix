@@ -100,7 +100,7 @@ function CardsSlick({title, category,}) {
             className="my-5 relative cursor-pointer hover:scale-110 transition-transform duration-300"
             key={index}
           >
-            <img src={`https://image.tmdb.org/t/p/w500/${card.backdrop_path}`} alt="" className="w-56" />
+            <img src={`https://image.tmdb.org/t/p/w500/${card.backdrop_path}`} alt="" className="w-[95%] lg:w-56" />
             <p className="absolute bottom-5 right-10">{card.original_title}</p>
           </div>
           </Link>  

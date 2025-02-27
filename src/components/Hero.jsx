@@ -8,7 +8,7 @@ import CardsSlick from './CardsSlick';
 function Hero() {
   return (
     <div className="ps-[6%] w-full relative">
-    <img src={hero} alt="" className="w-full mask-gradient" />
+    <img src={hero} alt="" className="w-full mask-gradient h-[40vh] sm:h-full" />
     <div className="absolute bottom-0 w-full">
       <img src={title} alt="" className="w-32 sm:w-56 md:w-[90%] max-w-[420px] mb-7" />
       <p className="max-w-[300px] sm:max-w-[500px] md:max-w-[700px] text-xs sm:text-sm md:text-md">
