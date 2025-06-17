@@ -7,10 +7,19 @@ import bell from "../assets/bell_icon.svg";
 import NavBarMenu from "./NavBarMenu";
 import { IoMdArrowDropdown } from "react-icons/io";
 import NavBarMenuSm from "./NavBarMenuSm";
+import { useContext } from "react";
+import { AppContext } from "../context/AppContext";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const navRef = useRef(null); // Initialize navRef
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const { userName, backendUrl, setUserName, setIsLoggedIn } =
+    useContext(AppContext);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,11 +33,23 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const logout = async () => {
+    try {
+      axios.defaults.withCredentials = true;
+      const { data } = await axios.post(backendUrl + "/api/accounts/logout");
+      data.success && setIsLoggedIn(false);
+      data.success && setUserName(false);
+      navigate("/");
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
 
   return (
     <div
@@ -56,7 +77,10 @@ const Navbar = () => {
               <NavBarMenuSm title="Movies" link="movies" />
               <NavBarMenuSm title="New & Popular" link="new-and-popular" />
               <NavBarMenuSm title="My List" link="mylist" />
-              <NavBarMenuSm title="Browse By Languages" link="browse-by-languages" />
+              <NavBarMenuSm
+                title="Browse By Languages"
+                link="browse-by-languages"
+              />
             </ul>
           )}
         </div>
@@ -75,13 +99,27 @@ const Navbar = () => {
       {/* Right Side - Icons & User Section */}
       <div className="flex items-center gap-4">
         <img src={search} alt="Search" className="w-4 md:w-[20px]" />
-        <p className="text-xs md:text-sm">User</p>
+        <p className="text-xs md:text-sm">{userName}</p>
         <img src={bell} alt="Notifications" className="w-4 md:w-[20px]" />
 
         {/* Profile Section */}
-        <div className="flex items-center gap-2 cursor-pointer">
-          <img src={profile} alt="Profile" className="w-7 md:w-[35px] rounded" />
+        <div className="flex items-center gap-2 cursor-pointer relative group">
+          <img
+            src={profile}
+            alt="Profile"
+            className="w-7 md:w-[35px] rounded"
+          />
           <img src={caret} alt="Dropdown" className="w-3" />
+          <div className="absolute hidden group-hover:block top-0 right-0 z-10 text-white rounded pt-10">
+            <ul className="list-none m-0 p-2 bg-black rounded">
+              <li
+                onClick={logout}
+                className="py-1 px-2 hover:bg-red-500 cursor-pointer pr-10 text-center"
+              >
+                Logout
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
